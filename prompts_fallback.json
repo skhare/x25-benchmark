@@ -1,0 +1,176 @@
+[
+  {
+    "id": "humaneval/HumanEval/0",
+    "task": "humaneval",
+    "prompt": "Complete the following Python function. Return ONLY the function body and any helper code, no markdown.\n\nfrom typing import List\n\n\ndef has_close_elements(numbers: List[float], threshold: float) -> bool:\n    \"\"\" Check if in given list of numbers, are any two numbers closer to each other than\n    given threshold.\n    >>> has_close_elements([1.0, 2.0, 3.0], 0.5)\n    False\n    >>> has_close_elements([1.0, 2.8, 3.0, 4.0, 5.0, 2.0], 0.3)\n    True\n    \"\"\"\n",
+    "reference": {
+      "entry_point": "has_close_elements",
+      "test": "def check(candidate):\n    assert candidate([1.0, 2.0, 3.9, 4.0, 5.0, 2.2], 0.3) == True\n    assert candidate([1.0, 2.0, 3.9, 4.0, 5.0, 2.2], 0.05) == False\n    assert candidate([1.0, 2.0, 5.9, 4.0, 5.0], 0.95) == True\n    assert candidate([1.0, 2.0, 5.9, 4.0, 5.0], 0.8) == False\n    assert candidate([1.0, 2.0, 3.0, 4.0, 5.0, 2.0], 0.1) == True\n    assert candidate([1.1, 2.2, 3.1, 4.1, 5.1], 1.0) == True\n    assert candidate([1.1, 2.2, 3.1, 4.1, 5.1], 0.5) == False\n",
+      "prompt": "from typing import List\n\n\ndef has_close_elements(numbers: List[float], threshold: float) -> bool:\n    pass\n"
+    }
+  },
+  {
+    "id": "humaneval/HumanEval/1",
+    "task": "humaneval",
+    "prompt": "Complete the following Python function. Return ONLY the function body, no markdown.\n\ndef return_length(s: str) -> int:\n    \"\"\"Return the length of the string s.\n    >>> return_length('hello')\n    5\n    >>> return_length('')\n    0\n    \"\"\"\n",
+    "reference": {
+      "entry_point": "return_length",
+      "test": "def check(candidate):\n    assert candidate('') == 0\n    assert candidate('x') == 1\n    assert candidate('asdasnakj') == 9\n",
+      "prompt": "def return_length(s: str) -> int:\n    pass\n"
+    }
+  },
+  {
+    "id": "humaneval/HumanEval/2",
+    "task": "humaneval",
+    "prompt": "Complete the following Python function. Return ONLY the function body, no markdown.\n\ndef truncate_number(number: float) -> float:\n    \"\"\"Given a positive floating point number, decompose it into integer and decimal parts.\n    Return the decimal part.\n    >>> truncate_number(3.5)\n    0.5\n    \"\"\"\n",
+    "reference": {
+      "entry_point": "truncate_number",
+      "test": "def check(candidate):\n    assert candidate(3.5) == 0.5\n    assert abs(candidate(1.33) - 0.33) < 1e-6\n    assert abs(candidate(123.456) - 0.456) < 1e-6\n",
+      "prompt": "def truncate_number(number: float) -> float:\n    pass\n"
+    }
+  },
+  {
+    "id": "humaneval/HumanEval/3",
+    "task": "humaneval",
+    "prompt": "Complete the following Python function. Return ONLY the function body, no markdown.\n\nfrom typing import List\n\n\ndef below_zero(operations: List[int]) -> bool:\n    \"\"\"Given a list of deposits and withdrawals, return True if the running balance ever drops below zero.\n    >>> below_zero([1, 2, 3])\n    False\n    >>> below_zero([1, 2, -4, 5])\n    True\n    \"\"\"\n",
+    "reference": {
+      "entry_point": "below_zero",
+      "test": "def check(candidate):\n    assert candidate([]) == False\n    assert candidate([1, 2, -3, 1, 2, -3]) == False\n    assert candidate([1, 2, -4, 5, 6]) == True\n    assert candidate([1, -1, 2, -2, 5, -5, 4, -4]) == False\n    assert candidate([1, -1, 2, -2, 5, -5, 4, -5]) == True\n",
+      "prompt": "from typing import List\n\n\ndef below_zero(operations: List[int]) -> bool:\n    pass\n"
+    }
+  },
+  {
+    "id": "humaneval/HumanEval/4",
+    "task": "humaneval",
+    "prompt": "Complete the following Python function. Return ONLY the function body, no markdown.\n\nfrom typing import List\n\n\ndef sum_list(numbers: List[int]) -> int:\n    \"\"\"Return the sum of integers in numbers.\n    >>> sum_list([1, 2, 3])\n    6\n    >>> sum_list([])\n    0\n    \"\"\"\n",
+    "reference": {
+      "entry_point": "sum_list",
+      "test": "def check(candidate):\n    assert candidate([]) == 0\n    assert candidate([1, 2, 3]) == 6\n    assert candidate([-1, 1]) == 0\n    assert candidate([100]) == 100\n",
+      "prompt": "from typing import List\n\n\ndef sum_list(numbers: List[int]) -> int:\n    pass\n"
+    }
+  },
+
+  {
+    "id": "gsm8k/0",
+    "task": "gsm8k",
+    "prompt": "Janet has 3 apples. She buys 2 more bags of apples with 4 apples in each bag. How many apples does she have now?\n\nThink step by step, then end with 'Answer: <number>'.",
+    "reference": {"answer": "11"}
+  },
+  {
+    "id": "gsm8k/1",
+    "task": "gsm8k",
+    "prompt": "A train travels 60 miles per hour for 2.5 hours. How many miles does it travel?\n\nThink step by step, then end with 'Answer: <number>'.",
+    "reference": {"answer": "150"}
+  },
+  {
+    "id": "gsm8k/2",
+    "task": "gsm8k",
+    "prompt": "There are 24 students in a class. Half of them play soccer, and a third of the soccer players also play tennis. How many students play both soccer and tennis?\n\nThink step by step, then end with 'Answer: <number>'.",
+    "reference": {"answer": "4"}
+  },
+  {
+    "id": "gsm8k/3",
+    "task": "gsm8k",
+    "prompt": "A book costs $12. With a 25% discount, how much does it cost?\n\nThink step by step, then end with 'Answer: <number>'.",
+    "reference": {"answer": "9"}
+  },
+  {
+    "id": "gsm8k/4",
+    "task": "gsm8k",
+    "prompt": "Tom is twice as old as Jerry. In 5 years, Tom will be 25. How old is Jerry now?\n\nThink step by step, then end with 'Answer: <number>'.",
+    "reference": {"answer": "10"}
+  },
+
+  {
+    "id": "triviaqa/0",
+    "task": "triviaqa",
+    "prompt": "Who wrote the play 'Romeo and Juliet'?\n\nAnswer in one short phrase.",
+    "reference": {"answers": ["William Shakespeare", "Shakespeare"]}
+  },
+  {
+    "id": "triviaqa/1",
+    "task": "triviaqa",
+    "prompt": "What is the capital of Australia?\n\nAnswer in one short phrase.",
+    "reference": {"answers": ["Canberra"]}
+  },
+  {
+    "id": "triviaqa/2",
+    "task": "triviaqa",
+    "prompt": "What chemical element has the symbol 'Au'?\n\nAnswer in one short phrase.",
+    "reference": {"answers": ["Gold", "gold"]}
+  },
+  {
+    "id": "triviaqa/3",
+    "task": "triviaqa",
+    "prompt": "In what year did humans first land on the Moon?\n\nAnswer in one short phrase.",
+    "reference": {"answers": ["1969"]}
+  },
+  {
+    "id": "triviaqa/4",
+    "task": "triviaqa",
+    "prompt": "Which planet in our solar system is known as the Red Planet?\n\nAnswer in one short phrase.",
+    "reference": {"answers": ["Mars"]}
+  },
+
+  {
+    "id": "xsum/0",
+    "task": "xsum",
+    "prompt": "Summarise the article in ONE sentence.\n\nARTICLE:\nResearchers at MIT have developed a new battery that can charge in under 60 seconds and retain 90% capacity after 10,000 cycles. The team used a novel aluminium-ion chemistry that avoids the lithium supply chain entirely. Field trials with a UK bus operator showed range parity with current lithium packs and a 40% reduction in pack weight. Commercial vehicles are the first target market; consumer EVs may follow within five years.",
+    "reference": {"summary": "MIT researchers built a fast-charging aluminium-ion battery aimed first at commercial vehicles."}
+  },
+  {
+    "id": "xsum/1",
+    "task": "xsum",
+    "prompt": "Summarise the article in ONE sentence.\n\nARTICLE:\nThe city council of Eindhoven approved a plan today to convert all major intersections into roundabouts by 2030. The decision follows a three-year traffic study showing roundabouts cut serious-injury crashes by 78% in the city's pilot zone. Critics complain about the conversion cost, estimated at €120 million, but the mayor argued the long-term safety and emissions savings justify the investment.",
+    "reference": {"summary": "Eindhoven will replace its main intersections with roundabouts by 2030 to reduce crashes despite a €120m cost."}
+  },
+  {
+    "id": "xsum/2",
+    "task": "xsum",
+    "prompt": "Summarise the article in ONE sentence.\n\nARTICLE:\nThe Pacific Tsunami Warning Center cancelled its tsunami advisory for the West Coast late Tuesday after a magnitude 7.5 earthquake off the coast of Japan produced waves smaller than initially predicted. Coastal communities from California to Alaska had been on alert for several hours. No injuries or significant damage were reported in the United States.",
+    "reference": {"summary": "A US tsunami advisory was lifted after a Japan earthquake produced smaller waves than expected, with no damage reported."}
+  },
+  {
+    "id": "xsum/3",
+    "task": "xsum",
+    "prompt": "Summarise the article in ONE sentence.\n\nARTICLE:\nDeepMind announced today that its protein-folding model AlphaFold 3 will be made freely available to academic researchers. The expanded model can now predict the structures of complexes involving DNA, RNA and small molecules, in addition to proteins. The previous version, AlphaFold 2, has been used in over 25,000 published papers since 2021.",
+    "reference": {"summary": "DeepMind opened AlphaFold 3, which now predicts protein-DNA-RNA complexes, to academic researchers."}
+  },
+  {
+    "id": "xsum/4",
+    "task": "xsum",
+    "prompt": "Summarise the article in ONE sentence.\n\nARTICLE:\nNorwegian airline operator Widerøe has placed an order for 30 hybrid-electric regional aircraft from Heart Aerospace, with deliveries scheduled to begin in 2029. The 30-seat ES-30 aircraft can fly 200 km on batteries alone or 800 km in hybrid mode using sustainable aviation fuel as backup. Widerøe expects the new fleet to halve emissions on its short-hop Norwegian routes.",
+    "reference": {"summary": "Widerøe ordered 30 hybrid-electric ES-30 aircraft from Heart Aerospace to halve emissions on short Norwegian routes."}
+  },
+
+  {
+    "id": "rag/0",
+    "task": "rag",
+    "prompt": "Answer the question using ONLY the context below. If the answer isn't in the context, say 'unknown'.\n\nCONTEXT:\nThe Eiffel Tower is a wrought-iron lattice tower on the Champ de Mars in Paris, France. It is named after the engineer Gustave Eiffel, whose company designed and built the tower. Constructed from 1887 to 1889 as the entrance to the 1889 World's Fair, it was initially criticised by some of France's leading artists.\n\nQUESTION: When was the Eiffel Tower built?",
+    "reference": {"answers": ["1887 to 1889", "1887-1889"]}
+  },
+  {
+    "id": "rag/1",
+    "task": "rag",
+    "prompt": "Answer the question using ONLY the context below. If the answer isn't in the context, say 'unknown'.\n\nCONTEXT:\nPython is an interpreted, high-level programming language created by Guido van Rossum and first released in 1991. Python's design philosophy emphasises code readability with the use of significant indentation.\n\nQUESTION: Who created Python?",
+    "reference": {"answers": ["Guido van Rossum"]}
+  },
+  {
+    "id": "rag/2",
+    "task": "rag",
+    "prompt": "Answer the question using ONLY the context below. If the answer isn't in the context, say 'unknown'.\n\nCONTEXT:\nMount Everest is Earth's highest mountain above sea level, located in the Mahalangur Himal sub-range of the Himalayas. The China-Nepal border runs across its summit point. Its elevation is 8,848.86 m.\n\nQUESTION: How tall is Mount Everest?",
+    "reference": {"answers": ["8,848.86 m", "8848.86 m", "8848.86 metres"]}
+  },
+  {
+    "id": "rag/3",
+    "task": "rag",
+    "prompt": "Answer the question using ONLY the context below. If the answer isn't in the context, say 'unknown'.\n\nCONTEXT:\nThe Treaty of Versailles was signed on 28 June 1919, formally ending World War I between Germany and the Allied Powers. The treaty required Germany to accept responsibility for causing the war and to pay reparations to certain countries that had formed the Entente powers.\n\nQUESTION: What is the boiling point of water?",
+    "reference": {"answers": ["unknown"]}
+  },
+  {
+    "id": "rag/4",
+    "task": "rag",
+    "prompt": "Answer the question using ONLY the context below. If the answer isn't in the context, say 'unknown'.\n\nCONTEXT:\nThe Great Barrier Reef is the world's largest coral reef system, composed of over 2,900 individual reefs and 900 islands stretching for over 2,300 kilometres over an area of approximately 344,400 square kilometres. It is located in the Coral Sea, off the coast of Queensland, Australia.\n\nQUESTION: How many individual reefs make up the Great Barrier Reef?",
+    "reference": {"answers": ["2,900", "over 2,900", "more than 2,900"]}
+  }
+]

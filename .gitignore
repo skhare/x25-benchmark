@@ -1,0 +1,13 @@
+__pycache__/
+*.pyc
+.venv/
+venv/
+.env
+.env.local
+
+data/raw_results.json
+data/scored_results.json
+data/strategy_results.json
+data/*.png
+data/summary.md
+data/run.log
